@@ -1,0 +1,167 @@
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-header bg-white pb-5">
+              <div class="text-muted text-center mb-3">
+                <small>Sign up with</small>
+              </div>
+              <div class="text-center">
+                <a href="javascript:void(0)" class="btn btn-neutral btn-icon mr-4">
+                  <span class="btn-inner--icon">
+                    <img src="./assets/img/icons/common/github.svg">
+                  </span>
+                  <span class="btn-inner--text">Github</span>
+                </a>
+                <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
+                  <span class="btn-inner--icon">
+                    <img src="./assets/img/icons/common/google.svg">
+                  </span>
+                  <span class="btn-inner--text">Google</span>
+                </a>
+              </div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Or sign up with credentials</small>
+              </div>
+              <form [formGroup]="registerForm" (ngSubmit)= "onSubmit()">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input type="text" placeholder="Full Name" formControlName="fullName" class="form-control"/>
+                  </div>
+                  <span class="text-danger" *ngIf="(f.fullName.touched || submitted) && f.fullName.errors?.required"> Name is required </span>
+                  <div *ngIf="submitted && f.fullName.errors && f.fullName.status">Full name should have minimum 4 characters</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Email" type="email" formControlName="email"/>
+                  </div>
+                  <span class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.required"> Email is required</span>
+                  <div *ngIf="submitted && f.email.errors && f.email.status">invalid email</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input id="myInput" class="form-control" placeholder="Password" type="password" formControlName="password" (focus)="focus2=true" (blur)="focus2=false">
+                  </div>
+                  <span class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.required">
+                    Password is required
+                  </span>
+                  <span class="text-danger"
+                  *ngIf="f.password.touched && f.password.errors?.invalidPassword">
+                  Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                  letter and 1 number
+                </span>
+                </div>
+                <div class="form-group" >
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open" onclick="myFunction()"></i></span>
+                    </div>
+                    <input id="myInput" type="password" placeholder="confirm Password" formControlName="confirmPassword" (focus)="focus2=true" (blur)="focus2=false" class="form-control" />
+        </div>
+        <span class="text-danger"
+                                *ngIf="(f.confirmPassword.touched || submitted)&& f.confirmPassword.errors?.required">
+                                Confirm Password is required
+                            </span>
+                            <span class="text-danger"
+                                *ngIf="f.confirmPassword.touched && f.confirmPassword.errors?.passwordMismatch">
+                                Passwords doesnot match
+                            </span>
+
+                </div>
+
+
+
+
+
+
+<div class="form-group" [ngClass]="{'focused':focus1===true}">
+  <div class="input-group input-group-alternative mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+</svg>
+      </span>
+    </div>
+     <input  maxlength="14"  placeholder="phone" formControlName="phone" class="form-control" />
+
+     </div>
+       <span class="text-danger"
+                *ngIf="(f.phone.touched || submitted) && f.phone.errors?.required">
+                phone is required
+            </span>
+            <div *ngIf="submitted && f.phone.errors && f.phone.status"> phone number should have minimum 8 numbers</div>
+</div>
+
+<div class="form-group" [ngClass]="{'focused':focus1===true}">
+  <div class="input-group input-group-alternative mb-3">
+
+<input class="form-control" formControlName="companyEmployeesNumber" placeholder="Company number of employees" >
+
+
+  </div>
+      <span class="text-danger"
+                *ngIf="(f.companyEmployeesNumber.touched || submitted) && f.companyEmployeesNumber.errors?.required">
+                Company number of employees is required
+            </span>
+</div>
+
+
+
+
+
+
+<div class="row my-4">
+  <div class="col-12">
+    <div class="custom-control custom-control-alternative custom-checkbox">
+      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+      <label class="custom-control-label" for="customCheckRegister">
+        <span>I agree with the
+          <a href="javascript:void(0)">Privacy Policy</a>
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+<button [disabled]="loading" class="btn btn-primary">Register</button>
+<img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+<a routerLink="/login" class="btn btn-link">Cancel</a>
+</div>
+
+</form>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
